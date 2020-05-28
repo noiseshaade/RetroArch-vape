@@ -8,18 +8,18 @@
   "sort_mode": 2,
   "items": [
     {
-      "path": "D:\\downloads\\GoodNes_3.14\\Duck Tales (U) [!].nes",
+      "path": "roms\\Super Mario World (U) [!].zip",
       "label": "",
-      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
-      "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch-vape\\system\\cores\\snes9x_libretro.dll",
+      "core_name": "Nintendo - SNES / SFC (Snes9x - Current)",
       "crc32": "",
       "db_name": ""
     },
     {
-      "path": "D:\\downloads\\GoodNes_3.14\\Super Mario Bros. (E) (REVA) [!].nes",
+      "path": "roms\\Legend of Zelda, The - Link's Awakening DX [T+Rus_Shedevr].zip",
       "label": "",
-      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
-      "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\vbam_libretro.dll",
+      "core_name": "Nintendo - Game Boy Advance (VBA-M)",
       "crc32": "",
       "db_name": ""
     },
@@ -32,26 +32,26 @@
       "db_name": ""
     },
     {
-      "path": "D:\\Downloads\\Super Mario World (U) [!].zip",
+      "path": "roms\\Super Mario Bros. (E) (REVA) [!].nes",
       "label": "",
-      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\snes9x2010_libretro.dll",
-      "core_name": "Nintendo - SNES / SFC (Snes9x 2010)",
-      "crc32": "",
-      "db_name": ""
-    },
-    {
-      "path": "D:\\Downloads\\GoodNes_3.14\\Megaman III\\Megaman III (U) [!].nes",
-      "label": "",
-      "core_path": "D:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
       "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
       "crc32": "",
       "db_name": ""
     },
     {
-      "path": "D:\\Downloads\\Legend of Zelda, The - Link's Awakening DX [T+Rus_Shedevr].zip",
+      "path": "D:\\downloads\\GoodNes_3.14\\Duck Tales (U) [!].nes",
       "label": "",
-      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\vbam_libretro.dll",
-      "core_name": "Nintendo - Game Boy Advance (VBA-M)",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
+      "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
+      "crc32": "",
+      "db_name": ""
+    },
+    {
+      "path": "roms\\Megaman III\\Megaman III (U) [!].nes",
+      "label": "",
+      "core_path": "D:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
+      "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
       "crc32": "",
       "db_name": ""
     },
