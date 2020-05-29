@@ -7,5 +7,13 @@
   "left_thumbnail_mode": 0,
   "sort_mode": 2,
   "items": [
+    {
+      "path": "d:\\Documents\\GitHub\\RetroArch-vape\\screenshots\\Chrono.Cross.CD2.Russian.RGR-200528-221005.png",
+      "label": "",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch-vape\\builtin",
+      "core_name": "imageviewer",
+      "crc32": "",
+      "db_name": ""
+    }
   ]
 }

@@ -14,6 +14,7 @@ layout(push_constant) uniform Push
 	float green;
 	float blue;
 	float noiseoffset;
+	float noisedenumanator;
 } params;
 
 #pragma parameter black "Black point - min value" 10.0 0.0 255.0 5.0
@@ -24,6 +25,8 @@ layout(push_constant) uniform Push
 #pragma parameter green "Green" 255.0 0.0 300.0 5.0
 #pragma parameter blue "Blue" 255.0 0.0 300.0 5.0
 #pragma parameter noiseoffset "Noise offset. Noise should return 0..1" -0.5 -1.0 1.5 0.05
+#pragma parameter noisedenumanator "Если чото тупит" 500.0 0.0 10000.0 100.0
+
 
 #define black params.black
 #define white params.white
@@ -34,6 +37,7 @@ layout(push_constant) uniform Push
 #define blue params.blue
 #define noiseoffset params.noiseoffset
 #define FrameCount params.FrameCount
+#define noisedenumanator params.noisedenumanator
 
 
 
@@ -94,5 +98,5 @@ void main()
    FragColor.z=FragColor.z*(blue/255.0);
    FragColor = FragColor *white/255.0+black/255.0-FragColor*black/255.0;
 //	gl_FragColor = gl_FragColor +(pseudoNoise(TEX0.xy*float(FrameCount))+ noiseoffset)*noise/255.0;
-   	FragColor = FragColor +(pseudoNoise(vTexCoord.xy*FrameCount/5000)+ noiseoffset)*noise/255.0;
+   	FragColor = FragColor +(pseudoNoise(vTexCoord.xy*FrameCount/noisedenumanator)+ noiseoffset)*noise/255.0;
 }

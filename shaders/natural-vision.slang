@@ -27,7 +27,7 @@ layout(push_constant) uniform push_constant
 
 //#pragma parameter GIN   "NaturalVision Gamma In"    2.2 0.0 10.0 0.05
 //#pragma parameter GOUT  "NaturalVision Gamma Out"   2.2 0.0 10.0 0.05
-#pragma parameter intensivity "Multiply all these natural below"   1.2 0.0 10.0 0.1
+#pragma parameter intensivity "Multiply all these natural below"   1.1 0.0 10.0 0.1
 #pragma parameter Y "NaturalVision Luminance"   1.0 0.0 10.0 0.01
 #pragma parameter I "NaturalVision Orange-Cyan" 1.0 0.0 10.0 0.01
 #pragma parameter Q "NaturalVision Magenta-Green"   1.0 0.0 10.0 0.01
