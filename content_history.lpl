@@ -8,22 +8,6 @@
   "sort_mode": 2,
   "items": [
     {
-      "path": "D:\\downloads\\SQUARE.Mega.Compressed.Collection.for.PSOne\\Chrono Cross\\Chrono.Cross.CD2.Russian.RGR.bin",
-      "label": "",
-      "core_path": "DETECT",
-      "core_name": "DETECT",
-      "crc32": "",
-      "db_name": ""
-    },
-    {
-      "path": "roms\\Super Mario World (U) [!].zip",
-      "label": "",
-      "core_path": "d:\\Documents\\GitHub\\RetroArch-vape\\system\\cores\\snes9x_libretro.dll",
-      "core_name": "Nintendo - SNES / SFC (Snes9x - Current)",
-      "crc32": "",
-      "db_name": ""
-    },
-    {
       "path": "roms\\Legend of Zelda, The - Link's Awakening DX [T+Rus_Shedevr].zip",
       "label": "",
       "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\vbam_libretro.dll",
@@ -36,6 +20,22 @@
       "label": "",
       "core_path": "d:\\Documents\\GitHub\\RetroArch\\cores\\nestopia_libretro.dll",
       "core_name": "Nintendo - NES / Famicom (Nestopia UE)",
+      "crc32": "",
+      "db_name": ""
+    },
+    {
+      "path": "roms\\Super Mario World (U) [!].zip",
+      "label": "",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch-vape\\system\\cores\\snes9x_libretro.dll",
+      "core_name": "Nintendo - SNES / SFC (Snes9x - Current)",
+      "crc32": "",
+      "db_name": ""
+    },
+    {
+      "path": "D:\\downloads\\SQUARE.Mega.Compressed.Collection.for.PSOne\\Chrono Cross\\Chrono.Cross.CD2.Russian.RGR.bin",
+      "label": "",
+      "core_path": "d:\\Documents\\GitHub\\RetroArch-vape\\system\\cores\\pcsx_rearmed_libretro.dll",
+      "core_name": "Sony - PlayStation (PCSX ReARMed)",
       "crc32": "",
       "db_name": ""
     },
