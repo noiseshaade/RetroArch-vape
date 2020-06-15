@@ -1,3 +1,6 @@
+Я обновил, есть скажем так более новая версия шейдера, там исправлены глюки генерации шума и опенгл версия
+Но мне влом гитхабом пользоваться ебаться, новая версия вот тут кароче https://rutracker.org/forum/viewtopic.php?t=5901541
+
 # RetroArch-simple
 im okay im not alcoholic
 # ITS MY REACTION WHEN I HAVE ANY DEAL WITH RETROARCH / ЭТО МОЯ РЕАКЦИЯ КОГДА ЭТОТ БЛЯДСКИЙ ЭМУЛЯТОР ПРОБОВАЛ, ЧЁ ЗА ХУЙНЯ ВАЩЕ
@@ -19,3 +22,4 @@ ju-l1l2
 ;p-r1r2
 
 Configurate shader for youself
+
