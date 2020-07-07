@@ -1,14 +1,17 @@
 //Advanced stock by Danila Zabiaka
 //#define white 240.0
 //#define black 10.0
+#pragma parameter gammabefore "Gamma before levels correction - I dont know how is better" 1.0 0.0 10.0 0.05
 #pragma parameter black "Black point - min value" 10.0 0.0 255.0 5.0
 #pragma parameter white "White point - max value" 240.0 0.0 255.0 5.0
+#pragma parameter gammaafter "Gamma after levels correction - I dont know how is better" 1.0 0.0 10.0 0.05
 #pragma parameter noise "Noise" 24.0 0.0 255.0 2.0
-#pragma parameter satoffset "Saturation" 50.0 0.0 100.0 5.0
+#pragma parameter satoffset "Saturation - REDUCE IT (usual lcd display is oversaturated)" 50.0 0.0 100.0 5.0
 #pragma parameter red "Red max value, usually 255" 255.0 0.0 300.0 5.0
 #pragma parameter green "Green" 255.0 0.0 300.0 5.0
 #pragma parameter blue "Blue" 255.0 0.0 300.0 5.0
 #pragma parameter noiseoffset "Noise offset. Noise should return 0..1" -0.5 -1.0 1.5 0.05
+#pragma parameter noiseden "Остаток от шума" 120.0 0.0 10000.0 10.0
 
 
 //#define noise 25.0
@@ -107,6 +110,9 @@ uniform COMPAT_PRECISION float red;
 uniform COMPAT_PRECISION float green;
 uniform COMPAT_PRECISION float blue;
 uniform COMPAT_PRECISION float noiseoffset;
+uniform COMPAT_PRECISION float noiseden;
+uniform COMPAT_PRECISION float gammabefore;
+uniform COMPAT_PRECISION float gammaafter;
 #else
 #endif
 
@@ -118,9 +124,10 @@ void main()
 	gl_FragColor.x = gl_FragColor.x*(red/255.0);
 	gl_FragColor.y=gl_FragColor.y*(green/255.0);
 	gl_FragColor.z=gl_FragColor.z*(blue/255.0);
-	
+	gl_FragColor.xyz=pow(gl_FragColor.xyz, vec3(1.0/gammabefore));
 	gl_FragColor = gl_FragColor *white/255.0+black/255.0-gl_FragColor*black/255.0;
-	gl_FragColor = gl_FragColor +(pseudoNoise(TEX0.xy*float(FrameCount))+ noiseoffset)*noise/255.0;
+	gl_FragColor.xyz=pow(gl_FragColor.xyz, vec3(1.0/gammaafter));
+	gl_FragColor = gl_FragColor +(pseudoNoise(TEX0.xy*(mod(FrameCount, noiseden)+1))+ noiseoffset)*noise/255.0;
 //	gl_FragColor = gl_FragColor +(pseudoNoise(vec2((TEX0.x+gl_FragColor.x+gl_FragColor.z)*float(FrameCount),(TEX0.y+gl_FragColor.y+gl_FragColor.z)*float(FrameCount)/5000.0))+noiseoffset)*noise/255.0;
 //	FragColor = gl_FragColor + 0.0;
 } 
