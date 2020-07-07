@@ -14,30 +14,39 @@ layout(push_constant) uniform Push
 	float green;
 	float blue;
 	float noiseoffset;
-	float noisedenumanator;
+	float noiseden;
+	float gammabefore;
+	float gammaafter;
 } params;
 
+//Advanced stock by Danila Zabiaka
+//#define white 240.0
+//#define black 10.0
+#pragma parameter gammabefore "Gamma before levels correction - I dont know how is better" 1.0 0.0 10.0 0.05
 #pragma parameter black "Black point - min value" 10.0 0.0 255.0 5.0
 #pragma parameter white "White point - max value" 240.0 0.0 255.0 5.0
+#pragma parameter gammaafter "Gamma after levels correction - I dont know how is better" 1.0 0.0 10.0 0.05
 #pragma parameter noise "Noise" 24.0 0.0 255.0 2.0
-#pragma parameter satoffset "Saturation" 50.0 0.0 100.0 5.0
+#pragma parameter satoffset "Saturation - REDUCE IT (usual lcd display is oversaturated)" 50.0 0.0 100.0 5.0
 #pragma parameter red "Red max value, usually 255" 255.0 0.0 300.0 5.0
 #pragma parameter green "Green" 255.0 0.0 300.0 5.0
 #pragma parameter blue "Blue" 255.0 0.0 300.0 5.0
 #pragma parameter noiseoffset "Noise offset. Noise should return 0..1" -0.5 -1.0 1.5 0.05
-#pragma parameter noisedenumanator "Если чото тупит" 500.0 0.0 10000.0 100.0
+#pragma parameter noiseden "Остаток от шума" 120.0 0.0 10000.0 10.0
 
 
 #define black params.black
 #define white params.white
 #define noise params.noise
+#define gammabefore params.gammabefore
+#define gammaafter params.gammaafter
 #define satoffset params.satoffset
 #define red params.red
 #define green params.green
 #define blue params.blue
 #define noiseoffset params.noiseoffset
 #define FrameCount params.FrameCount
-#define noisedenumanator params.noisedenumanator
+#define noiseden params.noiseden
 
 
 
@@ -46,7 +55,7 @@ layout(std140, set = 0, binding = 0) uniform UBO
 	mat4 MVP;
 } global;
 
-/*float pseudoNoise(vec2 co)
+float pseudoNoise3(vec2 co)
 {
     float a = 12.9898;
     float b = 78.233;
@@ -58,11 +67,11 @@ layout(std140, set = 0, binding = 0) uniform UBO
 float pseudoNoise2(vec2 co)
 {
 return fract(sin(dot(vec2(co.x,co.y) ,vec2(12.9898,78.233))) * 43758.5453) *fract(sin(dot(vec2(co.x,co.y) ,vec2(12.9898,78.233)*2.0)) * 43758.5453); //pseudo random number generator
-}*/
+}
 
 float pseudoNoise(vec2 co)
 {
-return fract(sin(dot(vec2(co.x,co.y) ,vec2(12.9898,78.233))) * 43758.5453) ; //pseudo random number generator
+return fract(sin(dot(vec2(co.x,co.y) ,vec2(12.9898,78.233))) * 43758.5453)  ; //pseudo random number generator
 }
 
 vec3 czm_saturation(vec3 rgb, float adjustment)
@@ -96,7 +105,10 @@ void main()
    FragColor.x = FragColor.x*(red/255.0);
    FragColor.y=FragColor.y*(green/255.0);
    FragColor.z=FragColor.z*(blue/255.0);
+   FragColor.xyz=pow(FragColor.xyz, vec3(1.0/gammabefore));
    FragColor = FragColor *white/255.0+black/255.0-FragColor*black/255.0;
+   FragColor.xyz=pow(FragColor.xyz, vec3(1.0/gammaafter));
 //	gl_FragColor = gl_FragColor +(pseudoNoise(TEX0.xy*float(FrameCount))+ noiseoffset)*noise/255.0;
-   	FragColor = FragColor +(pseudoNoise(vTexCoord.xy*FrameCount/noisedenumanator)+ noiseoffset)*noise/255.0;
+   	FragColor = FragColor +(pseudoNoise(vTexCoord.xy*(mod(FrameCount, noiseden)+1))+ noiseoffset)*noise/255.0;
+	//FragColor = FragColor +(pseudoNoise(vTexCoord.xy*vec2(mod(FrameCount, noiseden)+22.759))+ noiseoffset)*noise/255.0;
 }
